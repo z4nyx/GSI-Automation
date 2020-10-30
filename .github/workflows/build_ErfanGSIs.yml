@@ -14,11 +14,11 @@ on:
     types: [started]
     
 env:
-  ROM_URL: https://download.c.realme.com/osupdate/RMX1901EX_11_OTA_1040_all_BbUuFdfQYcIr.ozip
-  ROM_NAME: ColorOS
-  ZIP_NAME: Realmeme
-  TZ: Asia/Kolkata
-  MIR: bit
+  ROM_URL: https://dl.google.com/dl/android/aosp/taimen-rp1a.201005.004-factory-f797c86c.zip
+  ROM_NAME: Pixel
+  ZIP_NAME: Pixel-2XL-haiku
+  TZ: Asia/Kuala_Lumpur
+  MIR: wet
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -68,6 +68,7 @@ jobs:
          run: |
               cd ErfanGSIs/output
               zip -r $ZIP_NAME-GSI-AB.7z *-AB-*.img
+              echo "AB : " >> links.txt
               ./transfer $MIR $ZIP_NAME-GSI-AB.7z | grep Download >> links.txt   
               
        - name: Print download links
